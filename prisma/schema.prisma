@@ -1,0 +1,255 @@
+  generator client {
+    provider = "prisma-client-js"
+    output   = "../src/generated/prisma"
+  }
+
+  datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+  }
+
+  model NICE_Ring_Road {
+    id             Int                      @id @default(autoincrement())
+    geom           Unsupported("geometry")?
+    name           String?                  @db.VarChar
+    stroke         String?                  @db.VarChar
+    stroke_width   Int?                     @map("stroke-width")
+    stroke_opacity Int?                     @map("stroke-opacity")
+  }
+
+  model bbmp___BBMP_198_Sheet_Attributes {
+    id         Int                      @id @default(autoincrement())
+    geom       Unsupported("geometry")?
+    OBJECTID   Int?
+    Ward_No    Int?
+    Ward_Name  String?                  @db.VarChar
+    Assembly_C String?                  @db.VarChar
+    Zone       String?                  @db.VarChar
+    LocalPA    String?                  @db.VarChar
+    planAuth   String?                  @db.VarChar
+
+    @@index([geom], map: "sidx_bbmp — BBMP_198_Sheet_Attributes_geom", type: Gist)
+    @@map("bbmp — BBMP_198_Sheet_Attributes")
+  }
+
+  model hightension {
+    ogc_fid           Int                      @id @default(autoincrement())
+    geom              Unsupported("geometry")?
+    id                String?                  @map("@id") @db.VarChar
+    building          String?                  @db.VarChar
+    cables            String?                  @db.VarChar
+    circuits          String?                  @db.VarChar
+    design            String?                  @db.VarChar
+    designation       String?                  @db.VarChar
+    fixme             String?                  @db.VarChar
+    frequency         String?                  @db.VarChar
+    layer             String?                  @db.VarChar
+    line_attachment   String?                  @db.VarChar
+    location          String?                  @db.VarChar
+    material          String?                  @db.VarChar
+    name              String?                  @db.VarChar
+    operator          String?                  @db.VarChar
+    operator_wikidata String?                  @map("operator:wikidata") @db.VarChar
+    power             String?                  @db.VarChar
+    structure         String?                  @db.VarChar
+    voltage           String?                  @db.VarChar
+    icon              String?                  @db.VarChar
+    wires             String?                  @db.VarChar
+    tainted           Boolean?                 @map("@tainted")
+
+    @@index([geom], map: "hightension_geom_geom_idx", type: Gist)
+  }
+
+  model metro {
+    ogc_fid      Int                      @id @default(autoincrement())
+    geom         Unsupported("geometry")?
+    name         String?                  @db.VarChar
+    line         String?                  @db.VarChar
+    line_        String?                  @map("line\t") @db.VarChar
+    status       String?                  @db.VarChar
+    grade        String?                  @db.VarChar
+    status_      String?                  @map("status\t") @db.VarChar
+    description  String?                  @db.VarChar
+    timestamp    String?                  @db.VarChar
+    begin        String?                  @db.VarChar
+    end          String?                  @db.VarChar
+    altitudemode String?                  @db.VarChar
+    tessellate   Int?
+    extrude      Int?
+    visibility   Int?
+    draworder    String?                  @db.VarChar
+    icon         String?                  @db.VarChar
+    color        String?                  @db.VarChar
+    status2      String?                  @db.VarChar
+
+    @@index([geom], map: "metro_geom_geom_idx", type: Gist)
+  }
+
+  model orr_revised {
+    uid                              Int                      @id
+    geom                             Unsupported("geometry")?
+    id                               String?                  @map("@id") @db.VarChar
+    alt_name                         String?                  @db.VarChar
+    alt_name_1                       String?                  @db.VarChar
+    bridge                           String?                  @db.VarChar
+    bus_bay                          String?                  @db.VarChar
+    busway                           String?                  @db.VarChar
+    covered                          String?                  @db.VarChar
+    cutting                          String?                  @db.VarChar
+    cycleway                         String?                  @db.VarChar
+    destination                      String?                  @db.VarChar
+    dual_carriageway                 String?                  @db.VarChar
+    embankment                       String?                  @db.VarChar
+    foot                             String?                  @db.VarChar
+    highway                          String?                  @db.VarChar
+    horse                            String?                  @db.VarChar
+    incline                          String?                  @db.VarChar
+    int_ref                          String?                  @db.VarChar
+    lane_markings                    String?                  @db.VarChar
+    lanes                            Int?
+    layer                            Int?
+    lit                              String?                  @db.VarChar
+    loc_name                         String?                  @db.VarChar
+    maxheight                        Json?                    @db.Json
+    maxheight_signed                 String?                  @map("maxheight:signed") @db.VarChar
+    maxspeed                         Int?
+    maxspeed_hgv                     Int?                     @map("maxspeed:hgv")
+    maxspeed_motorcycle              Int?                     @map("maxspeed:motorcycle")
+    maxweight_signed                 String?                  @map("maxweight:signed") @db.VarChar
+    maxwidth                         Float?
+    name                             String?                  @db.VarChar
+    name_kn                          String?                  @map("name:kn") @db.VarChar
+    name_ta                          String?                  @map("name:ta") @db.VarChar
+    narrow                           String?                  @db.VarChar
+    nat_name                         String?                  @db.VarChar
+    noexit                           String?                  @db.VarChar
+    official_name                    String?                  @db.VarChar
+    official_name_etymology_wikidata String?                  @map("official_name:etymology:wikidata") @db.VarChar
+    old_ref                          String?                  @db.VarChar
+    oneway                           String?                  @db.VarChar
+    opening_date                     DateTime?                @db.Date
+    overtaking                       String?                  @db.VarChar
+    ref                              String?                  @db.VarChar
+    ref_old                          String?                  @map("ref:old") @db.VarChar
+    ref_1                            String?                  @db.VarChar
+    ref_2                            String?                  @db.VarChar
+    restriction                      String?                  @db.VarChar
+    short_name                       String?                  @db.VarChar
+    shoulder                         String?                  @db.VarChar
+    sidewalk                         String?                  @db.VarChar
+    sidewalk_both                    String?                  @map("sidewalk:both") @db.VarChar
+    smoothness                       String?                  @db.VarChar
+    source_maxspeed                  String?                  @map("source:maxspeed") @db.VarChar
+    surface                          String?                  @db.VarChar
+    toll                             String?                  @db.VarChar
+    tunnel                           String?                  @db.VarChar
+    width                            Int?
+
+    @@index([geom], map: "sidx_orr_revised_geom", type: Gist)
+  }
+
+  model peripheral_proposed {
+    id   Int                      @id @default(autoincrement())
+    geom Unsupported("geometry")?
+
+    @@index([geom], map: "sidx_peripheral_proposed_geom", type: Gist)
+  }
+
+  model rural_final___rural_sort_of_final {
+    id          Int                      @id
+    geom        Unsupported("geometry")?
+    Name        String?                  @db.VarChar
+    Micromarket String?                  @db.VarChar
+    planAuth    String?                  @db.VarChar
+    govbody     String?                  @db.VarChar
+    Region      String?                  @db.VarChar
+    Zone        String?                  @db.VarChar
+    LocalAuth   String?                  @db.VarChar
+
+    @@index([geom], map: "sidx_rural_final — rural sort of final_geom", type: Gist)
+    @@map("rural_final — rural sort of final")
+  }
+
+  /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+  model spatial_ref_sys {
+    srid      Int     @id
+    auth_name String? @db.VarChar(256)
+    auth_srid Int?
+    srtext    String? @db.VarChar(2048)
+    proj4text String? @db.VarChar(2048)
+  }
+
+  model strr_proposed {
+    id   Int                      @id @default(autoincrement())
+    geom Unsupported("geometry")?
+
+    @@index([geom], map: "sidx_strr_proposed_geom", type: Gist)
+  }
+
+  model strr_revised {
+    id   Int                      @id @default(autoincrement())
+    geom Unsupported("geometry")?
+    name String?                  @db.VarChar
+
+    @@index([geom], map: "sidx_strr_revised_geom", type: Gist)
+  }
+
+  model suburb_railway {
+    ogc_fid            Int                      @id @default(autoincrement())
+    id                 String?                  @map("@id") @db.VarChar
+    addr_city          String?                  @map("addr:city") @db.VarChar
+    alt_name           String?                  @db.VarChar
+    bridge             String?                  @db.VarChar
+    covered            String?                  @db.VarChar
+    designation        String?                  @db.VarChar
+    electrified        String?                  @db.VarChar
+    embankment         String?                  @db.VarChar
+    frequency          String?                  @db.VarChar
+    gauge              String?                  @db.VarChar
+    height             String?                  @db.VarChar
+    internet_access    String?                  @db.VarChar
+    layer              String?                  @db.VarChar
+    maxspeed           String?                  @db.VarChar
+    name               String?                  @db.VarChar
+    name_hi            String?                  @map("name:hi") @db.VarChar
+    name_kn            String?                  @map("name:kn") @db.VarChar
+    name_ml            String?                  @map("name:ml") @db.VarChar
+    name_ta            String?                  @map("name:ta") @db.VarChar
+    name_te            String?                  @map("name:te") @db.VarChar
+    network            String?                  @db.VarChar
+    old_name           String?                  @db.VarChar
+    operator           String?                  @db.VarChar
+    passenger_lines    String?                  @db.VarChar
+    platforms          String?                  @db.VarChar
+    public_transport   String?                  @db.VarChar
+    railway            String?                  @db.VarChar
+    ref                String?                  @db.VarChar
+    service            String?                  @db.VarChar
+    short_name         String?                  @db.VarChar
+    source             String?                  @db.VarChar
+    start_date         String?                  @db.VarChar
+    toilets_wheelchair String?                  @map("toilets:wheelchair") @db.VarChar
+    train              String?                  @db.VarChar
+    tunnel             String?                  @db.VarChar
+    usage              String?                  @db.VarChar
+    voltage            String?                  @db.VarChar
+    wheelchair         String?                  @db.VarChar
+    wikidata           String?                  @db.VarChar
+    wikipedia          String?                  @db.VarChar
+    geom               Unsupported("geometry")?
+
+    @@index([geom], map: "suburb_railway_geom_geom_idx", type: Gist)
+  }
+
+  model urban_final_final {
+    id          Int                      @id @default(autoincrement())
+    geom        Unsupported("geometry")?
+    Name        String?                  @db.VarChar
+    Micromarket String?                  @db.VarChar
+    planAuth    String?                  @db.VarChar
+    Region      String?                  @db.VarChar
+    Zone        String?                  @db.VarChar
+    LocalAuth   String?                  @db.VarChar
+
+    @@index([geom], map: "sidx_urban_final_final_geom", type: Gist)
+  }

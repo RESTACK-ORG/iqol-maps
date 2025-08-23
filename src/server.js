@@ -1,4 +1,7 @@
 const app = require('./app');
+const mapsRouter = require('./routes/maps');
+app.use('/api', mapsRouter);
+
 
 const PORT = process.env.PORT || 3000;
 
