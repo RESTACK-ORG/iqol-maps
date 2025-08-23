@@ -18,4 +18,19 @@ router.get('/tables/:tableName/:id', MapsController.getRecordById);
 // Execute custom SQL query
 router.get('/query', MapsController.executeQuery);
 
+
+router.get('/urban', MapsController.getUrbanGeoJSON);
+router.get('/bbmp', MapsController.getBBMPGeoJSON);
+router.get('/metro', MapsController.getMetroGeoJSON);
+router.get('/rural', MapsController.getRuralGEOJSON);
+router.get('/nice', MapsController.getNICEGEOJSON);
+router.get('/orr', MapsController.getORRGEOJSON);
+router.get('/peripheral', MapsController.getPeripheralGEOJSON);
+router.get('/strr-proposed', MapsController.getSTRRProposedGEOJSON);
+router.get('/strr', MapsController.getSTRRGEOJSON);
+router.get('/hightension', MapsController.gethightensionGEOJSON);
+
+
+
+
 module.exports = router;
