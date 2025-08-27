@@ -118,7 +118,7 @@ app.get('/api/strr', async (req, res) => {
 });
 
 // 11. Suburban Railway
-app.get('/api/suburban', async (req, res) => {
+app.get('/api/suburb_railway', async (req, res) => {
     try {
         const data = await prisma.suburb_railway.findMany();
         res.json(data);
@@ -126,6 +126,7 @@ app.get('/api/suburban', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
