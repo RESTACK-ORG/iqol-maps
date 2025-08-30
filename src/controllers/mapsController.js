@@ -225,24 +225,53 @@ class MapsController {
   static async getMetroGeoJSON(req, res) {
     try {
       const result = await pool.query(`
-      SELECT json_build_object(
-        'type', 'FeatureCollection',
-        'features', json_agg(
-          json_build_object(
-            'type', 'Feature',
-            'geometry', ST_AsGeoJSON(geom)::json,
-            'properties', json_build_object(
-              'name', "name",
-              'line', "line",
-              'color', "color"
+        SELECT json_build_object(
+          'type', 'FeatureCollection',
+          'features', json_agg(
+            json_build_object(
+              'type', 'Feature',
+              'geometry', ST_AsGeoJSON(geom)::json,
+              'properties', json_build_object(
+                'name', name,
+                'line', line,
+                'color', color,
+                'status', status,
+                'grade', grade,
+              )
             )
           )
-        )
-      ) as geojson
-      FROM metro;      `);
+        ) AS geojson
+        FROM metro;
+      `);
       res.json(result.rows[0].geojson);
     } catch (error) {
-      console.error(error); // log error to console for real diagnostics
+      console.error(error);
+      res.status(500).json({ error: error.message });
+    }
+  }
+  // suburban railway
+  static async getSuburbanGeoJSON(req, res) {
+    try {
+      const result = await pool.query(`
+        SELECT json_build_object(
+          'type', 'FeatureCollection',
+          'features', json_agg(
+            json_build_object(
+              'type', 'Feature',
+              'geometry', ST_AsGeoJSON(geom)::json,
+              'properties', json_build_object(
+                'name', name,
+                'electrified', electrified,
+                'service', service
+              )
+            )
+          )
+        ) AS geojson
+        FROM suburb_railway;
+      `);
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      console.error(error);
       res.status(500).json({ error: error.message });
     }
   }
@@ -275,8 +304,8 @@ class MapsController {
   }
   //orr
   static async getORRGEOJSON(req, res) {
-  try {
-    const result = await pool.query(`
+    try {
+      const result = await pool.query(`
       SELECT json_build_object(
         'type', 'FeatureCollection',
         'features', json_agg(
@@ -293,15 +322,15 @@ class MapsController {
       ) as geojson
       FROM orr_revised;
     `);
-    res.json(result.rows[0].geojson);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
-}
-//peripheral ring road
-static async getPeripheralGEOJSON(req, res) {
-  try {
-    const result = await pool.query(`
+  //peripheral ring road
+  static async getPeripheralGEOJSON(req, res) {
+    try {
+      const result = await pool.query(`
       SELECT json_build_object(
         'type', 'FeatureCollection',
         'features', json_agg(
@@ -316,15 +345,15 @@ static async getPeripheralGEOJSON(req, res) {
       ) as geojson
       FROM peripheral_proposed;
     `);
-    res.json(result.rows[0].geojson);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
-}
-//STRR Proposed
-static async getSTRRProposedGEOJSON(req, res) {
-  try {
-    const result = await pool.query(`
+  //STRR Proposed
+  static async getSTRRProposedGEOJSON(req, res) {
+    try {
+      const result = await pool.query(`
       SELECT json_build_object(
         'type', 'FeatureCollection',
         'features', json_agg(
@@ -339,15 +368,15 @@ static async getSTRRProposedGEOJSON(req, res) {
       ) as geojson
       FROM strr_proposed;
     `);
-    res.json(result.rows[0].geojson);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
-}
-//STR revised
-static async getSTRRGEOJSON(req, res) {
-  try {
-    const result = await pool.query(`
+  //STR revised
+  static async getSTRRGEOJSON(req, res) {
+    try {
+      const result = await pool.query(`
       SELECT json_build_object(
         'type', 'FeatureCollection',
         'features', json_agg(
@@ -363,15 +392,15 @@ static async getSTRRGEOJSON(req, res) {
       ) as geojson
       FROM strr_revised;
     `);
-    res.json(result.rows[0].geojson);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
-}
-//hightension revised
-static async gethightensionGEOJSON(req, res) {
-  try {
-    const result = await pool.query(`
+  //hightension revised
+  static async gethightensionGEOJSON(req, res) {
+    try {
+      const result = await pool.query(`
       SELECT json_build_object(
         'type', 'FeatureCollection',
         'features', json_agg(
@@ -387,11 +416,11 @@ static async gethightensionGEOJSON(req, res) {
       ) as geojson
       FROM hightension;
     `);
-    res.json(result.rows[0].geojson);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+      res.json(result.rows[0].geojson);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
-}
 
 
 

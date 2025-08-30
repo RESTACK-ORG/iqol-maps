@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "iqol-crm",
+  "private_key_id": "7b4746f3c96fb3d25fcc2ca76ed7d4dc9fa74ee0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1Ylvj/yk5xY5b\niMe3/bLRq/N9on4eMyzPQMXXoEuMYm8a1aoznt5QVqcLi5f+l528ccdrXPlEdj4C\neMyB7KzdMGoHhtxEqkIfJHcndzqovVeXCdqhc0ZbSEKkurHvYPpSxFKB+mtiYd6b\n6a0eRkG8lfQyaiJzNy7+Wt6JHTMfdpVMt29yMEVun409bRNifNTO5QZRwoV+rd2E\nhfiUszap+Qcw3Rfnhp0Yc05azOXv/ZQTfyhG/rBgCm5bWCp6iuHNH93/PYZkoqbK\n1J2qQ6Jqr9eFYi7dbEYaT5oVbAAP363H9LkXNrwc1tZg7xKtPhZ6OK5tZK6z+JKx\npdVmJrS1AgMBAAECggEAEyLkq3X+4TW2ynDwkziMnmLcDkfvstt20YnVpaVnexDi\nhGwA6C/NaB/wQT9Rwp432csOPUVClia8bZHVj6qK5U4njZI8mHD3B2aXPJ5vXaCW\nRlzXiFuLU3OY9lytC6KJXmSQiN6E6E0HiZ76cPx8EHuolw4MAuhSSKsJGeGvBFVW\ncDGoWj1TopMBovV9b4J/gaUwQ9uOTF6zorGcEA8HlefGVhXYW2i7T9wjq737aQ+x\nDi/ZQxSR9iA5755NJFjrqpcK/WQKddZOmPV+cuucuubNMttS4NFJP7zFuFs1Vf9b\nmQUUYs0YxZwANOj8go/WVTYR5KzuItKmBPofU27wwQKBgQDxnbfytYPrb+3jnUsQ\nKnehX5pAlSp1wgrlPMiwZN/eF2XquZsA/s4Liu/czT6e+aPSPmiKD6jPg/cdcONl\nx3+l3aPhBrahYpmdEKEAI7R2KLcGud07Tf1pMhnBPglfjbnJ4VQtLQoOFvsFNl5M\n25zQ17AZI2wyh245LM27QRkhwQKBgQDALrGRAxHSulAYDccVRxxGsRGqKR7wDjPg\nTRlTauxcOy6uZVAWSeri96Nbo3gJvWli+pbFzGncbYyGOnL2h45D2WQkII8en5Ny\n9gV3lAP9inmVtN5UjR9GduUDiSBYW4rTeb+kSnVpo61D06IJ4NWZ+dxNUmHBClP7\n/TnDSDUn9QKBgQC7nPV+MHZcNhCpwrTLu74i/4JejbVntSISuO05E0tGQDLyXec/\nkZvbGKqCcJkkhsIveihgtCIn6NfU85iPqqay2/TpwfXEQTT44jWyTwdNDPZ58Y8Z\nAsk4ix+2jv5mRT2zxhU/8w4wvKV0ebAlzA3rmN/z1S6p2cG8Ac9KjRT/wQKBgQCQ\nL/hFRjpPEj4ZbezaB/otB5irRCLUFLPTK8U+ktA2+qgxbA3ESz0RgJ5tmJ3tINE6\n06vfR1h9ayutYZjzYgzY1veNK2h1n2AvNmovpzu/M++45HSSlzbJ1VZJas57vGLR\n+1xPVRX2ZjkO1G+UXb2kwpQI5zA0dx0/yGNYIorPKQKBgGTMJ2KnUssGTXY2hXAg\nFU0WlDrunFwhReid8TeNGegyOl/QMgM/FGi1C3CFYo7hyPCOtRLjh24wJ2bnKx76\nF0r5bu4N/0i/t4pqhAKkZG9HwMIW7KwXlCTLNUi7wMuSPUclUAcuSGv7qaM60IE8\nApDIyGHubA7ohCj2nI3ywRn2\n-----END PRIVATE KEY-----\n",
+  "client_email": "iqol-maps-service@iqol-crm.iam.gserviceaccount.com",
+  "client_id": "103317446585322015189",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/iqol-maps-service%40iqol-crm.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

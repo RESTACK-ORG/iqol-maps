@@ -8,10 +8,13 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.17.0",
     "@prisma/client": "^6.13.0",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
+    "fs-extra": "^11.3.1",
+    "node-cache": "^5.1.2",
     "pg": "^8.11.3",
     "prisma": "^6.13.0"
   },
