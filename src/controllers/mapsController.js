@@ -234,7 +234,9 @@ class MapsController {
               'properties', json_build_object(
                 'name', name,
                 'line', line,
-                'color', color
+                'color', color,
+                'status', status,
+                'grade', grade,
               )
             )
           )
