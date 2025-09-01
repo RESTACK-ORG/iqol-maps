@@ -1,5 +1,13 @@
 const { Pool } = require('pg');
-require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
+const dotenvResult = require('dotenv').config();
+
+if (dotenvResult.error) {
+  console.error('Error loading .env file:', dotenvResult.error);
+} else {
+  console.log('Successfully loaded .env file. Variables:', dotenvResult.parsed);
+}
 
 const isProduction = process.env.NODE_ENV === 'production';
 const useProxy = process.env.USE_CLOUD_SQL_PROXY === 'true';
@@ -25,10 +33,12 @@ if (isProduction) {
   poolConfig.host = process.env.DB_HOST || 'your-cloud-sql-public-ip';
   poolConfig.port = process.env.DB_PORT || 5432;
   poolConfig.ssl = {
-    rejectUnauthorized: false
+    rejectUnauthorized: true,
+    ca: fs.readFileSync(path.join(__dirname, '../../server-ca.pem')).toString(),
   };
 }
 
+console.log(`Attempting to connect with user: '${poolConfig.user}'`);
 const pool = new Pool(poolConfig);
 
 pool.on('connect', () => {
