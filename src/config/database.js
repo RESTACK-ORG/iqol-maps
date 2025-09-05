@@ -16,8 +16,8 @@ const poolConfig = {
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME || 'postgres',
-  connectionTimeoutMillis: 30000,
-  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 60000,
+  idleTimeoutMillis: 60000,
   max: 20,
   allowExitOnIdle: true
 };
@@ -30,12 +30,12 @@ if (isProduction) {
   poolConfig.port = 5432;
 } else {
   // Local development with TCP connection (requires public IP)
-  poolConfig.host = process.env.DB_HOST || 'your-cloud-sql-public-ip';
+  poolConfig.host = process.env.DB_HOST;
   poolConfig.port = process.env.DB_PORT || 5432;
-  poolConfig.ssl = {
-    rejectUnauthorized: true,
-    ca: fs.readFileSync(path.join(__dirname, '../../server-ca.pem')).toString(),
-  };
+  // poolConfig.ssl = {
+  //   rejectUnauthorized: true,
+  //   ca: fs.readFileSync(path.join(__dirname, '../../server-ca.pem')).toString(),
+  // };
 }
 
 console.log(`Attempting to connect with user: '${poolConfig.user}'`);
